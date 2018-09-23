@@ -1,0 +1,24 @@
+{
+  "name": "hubblejs.com",
+  "version": "0.0.1",
+  "description": "The documentation site for HubbleJS",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "stylus -w assets/flatdoc.theme.styl -o assets/flatdoc.theme.css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Polyneue/hubblejs.com.git"
+  },
+  "author": "Ed Mendoza <polyneue@gmail.com> (http://www.edmendoza.com)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Polyneue/hubblejs.com/issues"
+  },
+  "homepage": "https://github.com/Polyneue/hubblejs.com#readme",
+  "devDependencies": {
+    "nib": "^1.1.2",
+    "stylus": "^0.54.5"
+  }
+}
