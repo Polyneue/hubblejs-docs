@@ -231,7 +231,6 @@ strong
       padding-top: 10px
 
   h1, h2
-    text-transform: uppercase
     letter-spacing: 1px
     font-size: 1.5em
 
@@ -502,7 +501,7 @@ a.big.button
     overflow-y: auto
 
 .menubar
-  font-size: 0.9em
+  font-size: 14px
 
 // Menu items
 .menu
@@ -524,21 +523,15 @@ a.big.button
       color: $accent*0.8
 
   a.level-1
-    font-family: montserrat, sans-serif
-    text-transform: uppercase
-    font-size: 0.9em
-    font-weight: bold
+    font-family: 'montserrat', sans-serif
     &, &:visited
       color: $grey
     &:hover
       color: $grey*0.6
 
-  a.level-2
-    font-weight: normal
+  // a.level-2
 
   a.level-3
-    font-weight: normal
-    font-size: 0.9em
     padding-left: 10px
     border-left: 1px solid #ddd;
 
@@ -604,7 +597,6 @@ code
     z-index: 1
 
 // Container
-// TODO: Refactor
 .container
   margin: 0 auto;
   position: relative;
@@ -616,7 +608,7 @@ code
   background-color: #fefefe
   border-bottom: 1px solid #dfe2e7
   background-image: url('/assets/hubblejs-hero.png')
-  background-image: url('/assets/hubblejs-hero.png'), linear-gradient(135deg, #ffffff 50%, #ededed)
+  background-image: url('/assets/hubblejs-hero.png'), linear-gradient(135deg, #fefefe 50%, #ededed)
   background-size: auto 450px
   background-repeat: no-repeat
   background-position: bottom right
@@ -697,4 +689,15 @@ code
   .menubar.fixed
     left: 50%
     transform: translate(-600px)
+
+@media only screen and (-webkit-min-device-pixel-ratio: 2),
+only screen and (min--moz-device-pixel-ratio: 2),
+only screen and (-moz-min-device-pixel-ratio: 2),
+only screen and (-o-min-device-pixel-ratio: 2/1),
+only screen and (min-device-pixel-ratio: 2),
+only screen and (min-resolution: 192dpi),
+only screen and (min-resolution: 2dppx)
+  .hero
+    background-image: url('/assets/hubblejs-hero.png')
+    background-image: url('/assets/hubblejs-hero@2x.png'), linear-gradient(135deg, #fefefe 50%, #ededed)
 

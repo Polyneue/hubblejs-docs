@@ -2,6 +2,9 @@
  * Flatdoc - (c) 2013, 2014 Rico Sta. Cruz
  * http://ricostacruz.com/flatdoc
  * @license MIT
+ *
+ * Modifications by @Polyneue
+ * - Removed the bitbucket and github integration
  */
 
 (function($) {
@@ -20,12 +23,6 @@
    *
    * These fetcher functions are available:
    *
-   *     Flatdoc.github('owner/repo')
-   *     Flatdoc.github('owner/repo', 'API.md')
-   *     Flatdoc.github('owner/repo', 'API.md', 'branch')
-   *     Flatdoc.bitbucket('owner/repo')
-   *     Flatdoc.bitbucket('owner/repo', 'API.md')
-   *     Flatdoc.bitbucket('owner/repo', 'API.md', 'branch')
    *     Flatdoc.file('http://path/to/url')
    *     Flatdoc.file([ 'http://path/to/url', ... ])
    */
@@ -68,98 +65,6 @@
         url : [url], '', callback);
     };
   };
-
-  /**
-   * Github fetcher.
-   * Fetches from repo `repo` (in format 'user/repo').
-   *
-   * If the parameter `filepath` is supplied, it fetches the contents of that
-   * given file in the repo's default branch. To fetch the contents of
-   * `filepath` from a different branch, the parameter `ref` should be
-   * supplied with the target branch name.
-   *
-   * See [Runner#run()] for a description of fetcher functions.
-   *
-   * See: http://developer.github.com/v3/repos/contents/
-   */
-  Flatdoc.github = function(opts) {
-    if (typeof opts === 'string') {
-      opts = {
-        repo: arguments[0],
-        filepath: arguments[1]
-      };
-    }
-    var url;
-    if (opts.filepath) {
-      url = 'https://api.github.com/repos/'+opts.repo+'/contents/'+opts.filepath;
-    } else {
-      url = 'https://api.github.com/repos/'+opts.repo+'/readme';
-    }
-    var data = {};
-    if (opts.token) {
-      data.access_token = opts.token;
-    }
-    if (opts.ref) {
-      data.ref = opts.ref;
-    }
-    return function(callback) {
-      $.get(url, data)
-        .fail(function(e) { callback(e, null); })
-        .done(function(data) {
-          var markdown = exports.Base64.decode(data.content);
-          callback(null, markdown);
-        });
-    };
-  };
-
-  /**
-   * Bitbucket fetcher.
-   * Fetches from repo `repo` (in format 'user/repo').
-   *
-   * If the parameter `filepath` is supplied, it fetches the contents of that
-   * given file in the repo.
-   *
-   * See [Runner#run()] for a description of fetcher functions.
-   *
-   * See: https://confluence.atlassian.com/display/BITBUCKET/src+Resources#srcResources-GETrawcontentofanindividualfile
-   * See: http://ben.onfabrik.com/posts/embed-bitbucket-source-code-on-your-website
-   * Bitbucket appears to have stricter restrictions on
-   * Access-Control-Allow-Origin, and so the method here is a bit
-   * more complicated than for Github
-   *
-   * If you don't pass a branch name, then 'default' for Hg repos is assumed
-   * For git, you should pass 'master'. In both cases, you should also be able
-   * to pass in a revision number here -- in Mercurial, this also includes
-   * things like 'tip' or the repo-local integer revision number
-   * Default to Mercurial because Git users historically tend to use GitHub
-   */
-  Flatdoc.bitbucket = function(opts) {
-    if (typeof opts === 'string') {
-      opts = {
-        repo: arguments[0],
-        filepath: arguments[1],
-        branch: arguments[2]
-      };
-    }
-    if (!opts.filepath) opts.filepath = 'readme.md';
-    if (!opts.branch) opts.branch = 'default';
-
-    var url = 'https://bitbucket.org/api/1.0/repositories/'+opts.repo+'/src/'+opts.branch+'/'+opts.filepath;
-
-   return function(callback) {
-     $.ajax({
-      url: url,
-      dataType: 'jsonp',
-      error: function(xhr, status, error) {
-        alert(error);
-      },
-      success: function(response) {
-        var markdown = response.data;
-        callback(null, markdown);
-      }
-  });
-};
-};
 
   /**
    * Parser module.
@@ -352,7 +257,7 @@
       .replace(/(\d+\.\d+)/gm, '<span class="number">$1</span>')
       .replace(/(\d+)/gm, '<span class="number">$1</span>')
       .replace(/\bnew *(\w+)/gm, '<span class="keyword">new</span> <span class="init">$1</span>')
-      .replace(/\b(function|new|throw|return|var|if|else)\b/gm, '<span class="keyword">$1</span>');
+      .replace(/\b(function|new|throw|return|var|const|let|if|else)\b/gm, '<span class="keyword">$1</span>');
   };
 
   Highlighters.html = function(code) {

@@ -10,12 +10,6 @@ HubbleJS is a customizable Node.js portfolio generator for developers that is po
 * Standardized Github response, to easily create custom templates
 * Compatible with any template engine
 
-## Default Site
-
-HubbleJS comes bundled with a default theme that can be customized to reflect your personality. For more information on the default theme, checkout the repository [hubblejs-default-theme](https://github.com/Polyneue/hubblejs-default-theme).
-
-![HubbleJS Default Theme - Dark](https://raw.githubusercontent.com/Polyneue/hubblejs-default-theme/master/examples/images/hubblejs-default-theme-dark-example-1.png)
-
 ## Getting Started
 
 HubbleJS was created to allow for quick set up with minimal configuration. Following the steps below will have your site built within minutes.
@@ -90,5 +84,38 @@ Will generate the site based on the configuration using the given template.
 Hubble.generate(function (data, output) {
   const render = `<p>${data.user.name}'s custom template.</p>`;
   fs.writeFileSync(output, render, 'utf8');
+});
+```
+
+# Themes
+
+HubbleJS comes with a built in dark and light theme that can be used right out of the box. It can also be used with any templating language to generate pages using Github API data.
+
+## Default Theme
+
+The default theme can be customized to reflect your personality. For customization options for the default theme, check out the repository [hubblejs-default-theme](https://github.com/Polyneue/hubblejs-default-theme).
+
+![HubbleJS Default Theme - Dark](https://raw.githubusercontent.com/Polyneue/hubblejs-default-theme/master/examples/images/hubblejs-default-theme-dark-example-1.png)
+
+## Custom Templates
+
+Creating a custom theme for HubbleJS is simple, below is a basic example of using a templating language to generate a unique theme.
+
+The following file will be a basic pug template that will be hydrated with data.
+
+```html
+p #{user.username}'s source code
+```
+
+Then we will use the Pug package to render the template.
+
+```javascript
+const Hubble = require('hubble.js');
+const pug = require('pug');
+const fs = require('fs');
+
+hubble.generate(function (data, output) {
+  const render = pug.compileFile('./pug/temp.pug');
+  fs.writeFileSync(output, render, 'utf8')
 });
 ```

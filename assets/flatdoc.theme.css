@@ -309,7 +309,6 @@ strong {
 }
 .content h1,
 .content h2 {
-  text-transform: uppercase;
   letter-spacing: 1px;
   font-size: 1.5em;
 }
@@ -670,7 +669,7 @@ a.big.button:hover:visited {
   }
 }
 .menubar {
-  font-size: 0.9em;
+  font-size: 14px;
 }
 .menu ul.level-1 > li + li {
   margin-top: 20px;
@@ -693,10 +692,7 @@ a.big.button:hover:visited {
   color: #c73a60;
 }
 .menu a.level-1 {
-  font-family: montserrat, sans-serif;
-  text-transform: uppercase;
-  font-size: 0.9em;
-  font-weight: bold;
+  font-family: 'montserrat', sans-serif;
 }
 .menu a.level-1,
 .menu a.level-1:visited {
@@ -705,12 +701,7 @@ a.big.button:hover:visited {
 .menu a.level-1:hover {
   color: #707070;
 }
-.menu a.level-2 {
-  font-weight: normal;
-}
 .menu a.level-3 {
-  font-weight: normal;
-  font-size: 0.9em;
   padding-left: 10px;
   border-left: 1px solid #ddd;
 }
@@ -785,11 +776,11 @@ code .comment {
   background-color: #fefefe;
   border-bottom: 1px solid #dfe2e7;
   background-image: url("/assets/hubblejs-hero.png");
-  background-image: url("/assets/hubblejs-hero.png"), -webkit-linear-gradient(315deg, #fff 50%, #ededed);
-  background-image: url("/assets/hubblejs-hero.png"), -moz-linear-gradient(315deg, #fff 50%, #ededed);
-  background-image: url("/assets/hubblejs-hero.png"), -o-linear-gradient(315deg, #fff 50%, #ededed);
-  background-image: url("/assets/hubblejs-hero.png"), -ms-linear-gradient(315deg, #fff 50%, #ededed);
-  background-image: url("/assets/hubblejs-hero.png"), linear-gradient(135deg, #fff 50%, #ededed);
+  background-image: url("/assets/hubblejs-hero.png"), -webkit-linear-gradient(315deg, #fefefe 50%, #ededed);
+  background-image: url("/assets/hubblejs-hero.png"), -moz-linear-gradient(315deg, #fefefe 50%, #ededed);
+  background-image: url("/assets/hubblejs-hero.png"), -o-linear-gradient(315deg, #fefefe 50%, #ededed);
+  background-image: url("/assets/hubblejs-hero.png"), -ms-linear-gradient(315deg, #fefefe 50%, #ededed);
+  background-image: url("/assets/hubblejs-hero.png"), linear-gradient(135deg, #fefefe 50%, #ededed);
   -webkit-background-size: auto 450px;
   -moz-background-size: auto 450px;
   background-size: auto 450px;
@@ -890,5 +881,15 @@ code .comment {
     -o-transform: translate(-600px);
     -ms-transform: translate(-600px);
     transform: translate(-600px);
+  }
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-moz-min-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2/1), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
+  .hero {
+    background-image: url("/assets/hubblejs-hero.png");
+    background-image: url("/assets/hubblejs-hero@2x.png"), -webkit-linear-gradient(315deg, #fefefe 50%, #ededed);
+    background-image: url("/assets/hubblejs-hero@2x.png"), -moz-linear-gradient(315deg, #fefefe 50%, #ededed);
+    background-image: url("/assets/hubblejs-hero@2x.png"), -o-linear-gradient(315deg, #fefefe 50%, #ededed);
+    background-image: url("/assets/hubblejs-hero@2x.png"), -ms-linear-gradient(315deg, #fefefe 50%, #ededed);
+    background-image: url("/assets/hubblejs-hero@2x.png"), linear-gradient(135deg, #fefefe 50%, #ededed);
   }
 }
