@@ -273,6 +273,7 @@ strong {
   padding-bottom: 40px;
   padding-left: 40px;
   padding-right: 40px;
+  border-left: solid 1px #dfe2e7;
   zoom: 1;
   max-width: 700px;
 }
@@ -644,7 +645,6 @@ a.big.button:hover:visited {
     top: 0;
     bottom: 0;
     width: 230px;
-    border-right: solid 1px #dfe2e7;
   }
   .menubar.fixed {
     position: fixed;
@@ -671,10 +671,12 @@ a.big.button:hover:visited {
 .menubar {
   font-size: 14px;
 }
-.menu ul.level-1 > li + li {
+.menu ul.level-1 > li + li,
+.menu--no-index ul.level-1 > li + li {
   margin-top: 20px;
 }
-.menu a {
+.menu a,
+.menu--no-index a {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
@@ -685,35 +687,60 @@ a.big.button:hover:visited {
   margin-right: -30px;
 }
 .menu a,
-.menu a:visited {
+.menu--no-index a,
+.menu a:visited,
+.menu--no-index a:visited {
   color: #f94878;
 }
-.menu a:hover {
+.menu a:hover,
+.menu--no-index a:hover {
   color: #c73a60;
 }
-.menu a.level-1 {
+.menu a.level-1,
+.menu--no-index a.level-1,
+.menu p.level-1,
+.menu--no-index p.level-1 {
   font-family: 'montserrat', sans-serif;
 }
 .menu a.level-1,
-.menu a.level-1:visited {
+.menu--no-index a.level-1,
+.menu p.level-1,
+.menu--no-index p.level-1,
+.menu a.level-1:visited,
+.menu--no-index a.level-1:visited,
+.menu p.level-1:visited,
+.menu--no-index p.level-1:visited {
   color: #bbb;
 }
-.menu a.level-1:hover {
+.menu a.level-1:hover,
+.menu--no-index a.level-1:hover,
+.menu p.level-1:hover,
+.menu--no-index p.level-1:hover {
   color: #707070;
 }
-.menu a.level-3 {
+.menu p.level-1:hover,
+.menu--no-index p.level-1:hover {
+  color: #bbb;
+}
+.menu a.level-3,
+.menu--no-index a.level-3 {
   padding-left: 10px;
   border-left: 1px solid #ddd;
 }
-.menu a.active {
+.menu a.active,
+.menu--no-index a.active {
   font-weight: bold !important;
 }
 .menu a.active,
+.menu--no-index a.active,
 .menu a.active:visited,
-.menu a.active:hover {
+.menu--no-index a.active:visited,
+.menu a.active:hover,
+.menu--no-index a.active:hover {
   color: #505050 !important;
 }
-.menu a.active:after {
+.menu a.active:after,
+.menu--no-index a.active:after {
   content: '';
   display: block;
   -webkit-box-sizing: border-box;
@@ -892,4 +919,9 @@ code .comment {
     background-image: url("/assets/hubblejs-hero@2x.png"), -ms-linear-gradient(315deg, #fefefe 50%, #ededed);
     background-image: url("/assets/hubblejs-hero@2x.png"), linear-gradient(135deg, #fefefe 50%, #ededed);
   }
+}
+.footer {
+  padding: 22px;
+  border-top: 1px solid #dfe2e7;
+  font-size: 12px;
 }

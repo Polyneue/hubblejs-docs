@@ -1,6 +1,6 @@
-# HubbleJS
+# Documentation
 
-HubbleJS is a customizable Node.js portfolio generator for developers that is powered by the Github API. 
+HubbleJS is a simple, customizable, Github static portfolio generator. HubbleJS is designed to quickly generate a static website with minimal configuration from the user. However, HubbleJS can be configured to use custom templates and has extensive options for generating a site unique for each portfolio.
 
 ## Features
 

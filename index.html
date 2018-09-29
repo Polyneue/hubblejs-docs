@@ -1,17 +1,4 @@
 <!doctype html>
-<!--
-
-  Instructions:
-
-  - Save this file.
-  - Replace "USER" with your GitHub username.
-  - Replace "REPO" with your GitHub repo name.
-  - Replace "Your Project" with your project name.
-  - Upload this file (or commit to GitHub Pages).
-
-  Customize as you see fit!
-
--->
 <html>
 <head>
   <meta charset='utf-8'>
@@ -35,7 +22,7 @@
   <!-- Initializer -->
   <script>
     Flatdoc.run({
-      fetcher: Flatdoc.file('/docs/HubbleJS.md')
+      fetcher: Flatdoc.file('/docs/hubble-core.md')
     });
   </script>
 </head>
@@ -47,7 +34,7 @@
             <strong>HubbleJS</strong> is a customizable Node.js portfolio generator for developers that is powered by the Github API.
         </h2>
         <div class="hero__button-wrap">
-          <a href="#hubblejs-getting-started" class="button">Get Started</a>
+          <a href="#documentation" class="button">Get Started</a>
 
           <a href="https://github.com/Polyneue/hubblejs" class="button light">View on Github</a>
         </div>
@@ -59,10 +46,15 @@
         <div class='content-root'>
           <div class='menubar'>
             <div class='menu section' role='flatdoc-menu'></div>
-            <div class="section">
-                <iframe src="http://ghbtns.com/github-btn.html?user=Polyneue&amp;repo=hubblejs&amp;type=watch&amp;count=true" allowtransparency="true" scrolling="0" width="170" height="20" frameborder="0"></iframe>
-                <br/>
-                <a href="https://github.com/Polyneue/hubblejs">View on GitHub</a>
+            <div class="menu--no-index section">
+              <ul>
+                <li class="level-1">
+                  <iframe src="http://ghbtns.com/github-btn.html?user=Polyneue&amp;repo=hubblejs&amp;type=watch&amp;count=true" allowtransparency="true" scrolling="0" width="170" height="20" frameborder="0"></iframe>
+                </li>
+                <li class="level-1">
+                  <a href="https://github.com/Polyneue/hubblejs">View on GitHub</a>
+                </li>
+              </ul>
             </div>
           </div>
           <div role='flatdoc-content' class='content'></div>
@@ -71,5 +63,10 @@
     </section>
   </main>
 
+  <footer class="footer">
+    <div class="container">
+      <p>Copyright &copy; 2018 <a href="https://github.com/Polyneue" target="_blank">Ed Mendoza</a>  &nbsp;|&nbsp;  Released under the <a href="https://github.com/Polyneue/hubblejs-default-theme/blob/master/LICENSE">MIT&nbsp;License</a></p>
+    </div>
+  </footer>
 </body>
 </html>

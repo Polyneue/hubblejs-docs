@@ -214,6 +214,7 @@ strong
   padding-bottom: $pad
   padding-left: $pad
   padding-right: $pad
+  border-left: solid 1px $line
   clearfix()
 
   max-width: 700px
@@ -492,7 +493,6 @@ a.big.button
     top: 0
     bottom: 0
     width: $sidebar-width
-    border-right: solid 1px $line
 
   .menubar.fixed
     position: fixed
@@ -504,7 +504,8 @@ a.big.button
   font-size: 14px
 
 // Menu items
-.menu
+.menu,
+.menu--no-index
   ul.level-1 > li + li
     margin-top: 20px
 
@@ -522,12 +523,16 @@ a.big.button
     &:hover
       color: $accent*0.8
 
-  a.level-1
+  a.level-1,
+  p.level-1
     font-family: 'montserrat', sans-serif
     &, &:visited
       color: $grey
     &:hover
       color: $grey*0.6
+
+  p.level-1:hover
+    color: $grey
 
   // a.level-2
 
@@ -701,3 +706,7 @@ only screen and (min-resolution: 2dppx)
     background-image: url('/assets/hubblejs-hero.png')
     background-image: url('/assets/hubblejs-hero@2x.png'), linear-gradient(135deg, #fefefe 50%, #ededed)
 
+.footer
+  padding: 22px
+  border-top: 1px solid $line
+  font-size: 12px
