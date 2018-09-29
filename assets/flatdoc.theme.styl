@@ -37,7 +37,7 @@ $pre-width = 380px
  * Fonts
  */
 
-@import url('//fonts.googleapis.com/css?family=Montserrat:700|Open+Sans:300')
+@import url('//fonts.googleapis.com/css?family=Open+Sans:300,600')
 
 // ----------------------------------------------------------------------------
 // Mixins
@@ -225,8 +225,9 @@ strong
 
   h1, h2, h3
     antialias()
-    font-family: montserrat
+    font-family: $body-font
     padding-bottom: 0
+    font-weight: 600
 
     + p, ul, ol
       padding-top: 10px
@@ -321,8 +322,8 @@ body.no-literate .content pre > code
 
 .button
   antialias()
-  font-family: 'montserrat', sans-serif
-  font-weight: bold
+  font-family: $body-font
+  font-weight: 600
   font-size: 16px
 
   display: inline-block
@@ -388,8 +389,8 @@ body.no-literate .content pre > code
 
   h1
     antialias()
-    font-weight: bold
-    font-family: montserrat, sans-serif
+    font-weight: 600
+    font-family: $body-font
     font-size: 13px
 
     &, a, a:visited
@@ -463,7 +464,7 @@ a.big.button
   background: transparent
   border: solid 3px $accent
   border-radius: 30px
-  font-family: montserrat, sans-serif
+  font-family: $body-font
 
   &, &:visited
     color: $accent
@@ -525,7 +526,7 @@ a.big.button
 
   a.level-1,
   p.level-1
-    font-family: 'montserrat', sans-serif
+    font-family: $body-font
     &, &:visited
       color: $grey
     &:hover
@@ -608,16 +609,19 @@ code
 
 // Hero
 .hero
-  height: 450px
+  height: auto
   width: 100%
   background-color: #fefefe
   border-bottom: 1px solid #dfe2e7
   background-image: url('/assets/hubblejs-hero.png')
   background-image: url('/assets/hubblejs-hero.png'), linear-gradient(135deg, #fefefe 50%, #ededed)
-  background-size: auto 450px
+  background-size: cover
   background-repeat: no-repeat
   background-position: bottom right
   position: relative
+
+  .container
+    padding: 20px;
 
   .button
     margin-bottom: 20px
@@ -634,25 +638,45 @@ code
 
   &__subtitle
     font-size: 22px
-    padding-top: 100px
     line-height: 1.5
     padding-bottom: 30px
-    padding-left: 30px
+    // padding-left: 30px
 
   &__button-wrap
-    padding-left: 30px
+    // padding-left: 30px
 
-@media screen and (min-width: 770px)
+  &__logo
+    background-image: url('/assets/hubblejs-logo.svg')
+    background-repeat: no-repeat
+    text-indent: -9999px
+    overflow: hidden
+    width: 63px
+    height: 70px
+    padding-bottom: 30px
+
+@media screen and (min-width: 480px)
+  .hero
+    .container
+      padding-left: 30px
+      padding-right: 30px
+
+@media screen and (min-width: 768px)
   .hero
     .button
       display: inline-block
       text-align: left
+
+    .container
+      padding-top: 80px
 
   .hero__subtitle
     width: 490px
 
 @media screen and (min-width: 960px)
   .hero
+    height: 450px
+    background-size: auto 450px
+
     &:before
       display: none
 
@@ -660,6 +684,10 @@ code
   .container
     max-width: 960px;
     width: 960px;
+
+  .hero
+    .container
+      padding-left: 60px
 
   .menubar.fixed
     left: 50%
@@ -674,8 +702,10 @@ code
     height: 600px
     background-size: auto 600px
 
+    .container
+      padding-top: 165px
+
   .hero__subtitle
-    padding-top: 220px
     width: 490px
     padding-left: 0
 

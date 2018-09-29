@@ -341,10 +341,10 @@
     this.initialize(options);
   };
 
-  Runner.prototype.root    = '[role~="flatdoc"]';
-  Runner.prototype.menu    = '[role~="flatdoc-menu"]';
-  Runner.prototype.title   = '[role~="flatdoc-title"]';
-  Runner.prototype.content = '[role~="flatdoc-content"]';
+  Runner.prototype.root    = '[class~="js-flatdoc"]';
+  Runner.prototype.menu    = '[class~="js-flatdoc-menu"]';
+  Runner.prototype.title   = '[class~="js-flatdoc-title"]';
+  Runner.prototype.content = '[class~="js-flatdoc-content"]';
 
   Runner.prototype.initialize = function(options) {
     $.extend(this, options);

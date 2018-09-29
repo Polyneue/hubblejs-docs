@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "stylus -w assets/flatdoc.theme.styl -o assets/flatdoc.theme.css"
+    "build": "stylus -w assets/flatdoc.theme.styl -o assets/flatdoc.theme.css --compress"
   },
   "repository": {
     "type": "git",
