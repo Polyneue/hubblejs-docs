@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "stylus -w assets/flatdoc.theme.styl -o assets/flatdoc.theme.css --compress"
+    "build": "stylus -w assets/flatdoc.theme.styl -o assets/flatdoc.theme.css --compress",
+    "serve": "python -m SimpleHTTPServer 1313"
   },
   "repository": {
     "type": "git",
